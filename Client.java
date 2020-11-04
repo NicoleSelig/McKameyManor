@@ -6,7 +6,9 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class Client {
-    //create a socket
+    private static final String hostname = null;
+    private int port;
+    // create a socket
     Socket theSocket = new Socket(hostname, port);
     DataOutputStream dos = new DataOutputStream(theSocket.getInputStream());
 
