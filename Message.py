@@ -1,6 +1,8 @@
 class Message:
     
-    
+    def __init__():
+        pass
+        
     def __init__ (self, data):
        self.lines = data.split("\n")
        self.parts = self.lines[0].split("\\|")
@@ -23,7 +25,6 @@ class Message:
         self.target = name
         self.numBytes = 0
         
-    #nicole -- was empty in notes...will probably need changing
     def toString(self):
         ""
         
