@@ -3,12 +3,13 @@ import sys
 from Message import Message
 
 class Client:
-               
+    
+    playing = True
+    
     #main menu loop
     def main():
+        
         while(True):
-            msg = Message
-            
             server = socket.gethostbyname("localhost")
             port = 9876
             
@@ -20,18 +21,18 @@ class Client:
             except TimeoutError:
                 print("Connection Timeout")
                 print("Goodbye!")
-                exit(0)
+                self.quitWumpus()
             
             name = input("Welcome to Hunt the Wumpus! Enter your name: ")
             print("Hi " + name + "!")
-            message = msg.join(name)
+            msg = Message()
+            msg.join(name)
+            self.play()
             
-            play()
        
-    def play():
+    def play(self):
         #send to server
-        playing = True
-        while playing:
+        while self.playing:
             #read response from socket
             
             #if previous action == 'q'
@@ -57,18 +58,14 @@ class Client:
                 actionSelect[action]()
                 
             #turn it into a message
-            #send it to the server 
-            
-            
-   
-        
+            #send it to the server  
         
     #performs a system exit
-    def quitWumpus():
+    def quitWumpus(self):
         sys.exit("Goodbye!")
 
     #exits the playing loop
-    def home():
+    def home(self):
         self.playing = False
         
     #main driver    

@@ -1,12 +1,9 @@
 class Message:
-    
-    def __init__():
-        pass
         
-    def __init__ (self, data):
+    def __init__ (self, data ="null|null|0"):
        self.lines = data.split("\n")
-       self.parts = self.lines[0].split("\\|")
-       
+       self.parts = self.lines[0].split("|")
+       print(self.parts)
        self.command = self.parts[0]
        self.target = self.parts[1]
        self.numBytes = int(self.parts[2])
@@ -18,14 +15,13 @@ class Message:
            
     #getters and setters
     #or by action 
-    #Nicole -- we need to add 'MOVE', SHOOT, etc...
-      
+    #Nicole -- we need to add 'MOVE', SHOOT, etc...  
     def join(self, name):
         self.command =  "JOIN"
         self.target = name
         self.numBytes = 0
         
     def toString(self):
-        ""
+        return self.command + " | " + self.target + " | " + self.numBytes
         
     
