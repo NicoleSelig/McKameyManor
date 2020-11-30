@@ -22,6 +22,6 @@ class Message:
         self.numBytes = 0
         
     def toString(self):
-        return self.command + " | " + self.target + " | " + self.numBytes
+        return self.command + "|" + self.target + "|" + self.numBytes
         
     
