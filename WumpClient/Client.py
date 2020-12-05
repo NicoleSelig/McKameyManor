@@ -27,9 +27,8 @@ class Client:
             print("Hi " + name + "!")
             newPlayer = Message()
             newPlayer.join(name)
-            print(newPlayer.toString())
-            skt.sendall(bytes(newPlayer.toString(), 'UTF-8'))
-            print("socket sent")
+            skt.send(bytes(newPlayer.toString(), 'UTF-8'))
+            print("socket sent: " + newPlayer.toString())
             joinresponse = skt.recv(1024)
             print(str(joinresponse))
         

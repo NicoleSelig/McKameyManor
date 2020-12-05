@@ -2,10 +2,10 @@ import sys
 
 class Message:
         
-    def __init__ (self, data ="null|null|0"):
+    def __init__ (self, data ="null|null|0"):  #initiallizing with nulls and a 0
        self.lines = data.split("\n")
        self.parts = self.lines[0].split("|")
-       print(self.parts)
+       #print(self.parts)
        self.command = self.parts[0]
        self.target = self.parts[1]
        self.numBytes = int(self.parts[2])
