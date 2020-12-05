@@ -8,7 +8,6 @@ class Client:
     
     #main menu loop
     def main():
-        p = Play()
         while(True):
             server = socket.gethostbyname("localhost")
             port = 9876
@@ -24,13 +23,14 @@ class Client:
                 sys.exit()
             
             name = input("Welcome to Hunt the Wumpus! Enter your name: ")
-            print("Hi " + name + "!")
+            print("Welcome " + name + "!")
             newPlayer = Message()
             newPlayer.join(name)
             skt.send(bytes(newPlayer.toString(), 'UTF-8'))
-            print("socket sent: " + newPlayer.toString())
-            joinresponse = skt.recv(1024)
-            print(str(joinresponse))
+            #print("socket sent: " + newPlayer.toString())
+            
+            p = Play()
+            p.play(skt)
         
     #main driver    
     if __name__ == "__main__":

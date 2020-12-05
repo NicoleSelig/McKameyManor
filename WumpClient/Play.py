@@ -1,14 +1,20 @@
 import sys
+from Message import Message
+from Response import Response
 
 class Play:
     
     playing = True
     
-    def play(self):
-        print("Playing....")
+    def play(self, skt):
+        # print("Playing....")
     #send to server
         while self.playing:
             #read response from socket
+            joinResponse = Response(str(skt.recv(1024)))
+            print(joinResponse.message)
+          
+            
             
             #if previous action == 'q'
             #quit after reading the response
