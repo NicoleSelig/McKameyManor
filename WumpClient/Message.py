@@ -3,6 +3,7 @@ import sys
 class Message:
         
     def __init__ (self, data ="null|null|0"):  #initiallizing with nulls and a 0
+       print("Crafting new message")
        self.lines = data.split("\n")
        self.parts = self.lines[0].split("|")
        #print(self.parts)
@@ -24,6 +25,6 @@ class Message:
         self.numBytes = sys.getsizeof(name)
         
     def toString(self):
-        return self.command + "|" + self.target + "|" + str(self.numBytes)
+        return self.command + "|" + self.target + "|" + str(self.numBytes) + "\n"
         
     

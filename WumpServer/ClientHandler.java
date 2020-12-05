@@ -27,6 +27,7 @@ class ClientHandler extends Thread
     @Override
     public void run()
     {
+        System.out.println("New Client Handler");
         String req;
         String res;
 
@@ -34,7 +35,7 @@ class ClientHandler extends Thread
             try {
               BufferedReader br = new BufferedReader(new InputStreamReader(conn.getInputStream()));
               OutputStream os = new PrintStream(conn.getOutputStream());
-
+              System.out.println("Attempting to Read");
               req = br.readLine();
               System.out.println(ip + " - " + req);
 
