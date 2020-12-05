@@ -30,4 +30,7 @@ class Response:
         
     def getMessage(self):
         return self.message
+    
+    def getAdjacentRooms(self):
+        return self.adjacentRooms
         

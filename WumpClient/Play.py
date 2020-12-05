@@ -6,41 +6,34 @@ class Play:
     
     playing = True
     
-    def play(self, skt):
+    def play(self, skt, name):
         # print("Playing....")
     #send to server
         while self.playing:
             #read response from socket
-            joinResponse = Response(str(skt.recv(1024)))
-            print(joinResponse.getMessage())
-          
+            response = Response(str(skt.recv(1024)))
+            print(response.getMessage())
             
-            
-            #if previous action == 'q'
-            #quit after reading the response
-            
+            adjacentRooms = response.getAdjacentRooms()
+            print(adjacentRooms)
             #create a new Message from it
             #print the messages
             
             #prompt the user for input
             #read the input - moves are chars
-            
-            #Nicole -- pythons version of a switch
-            actionSelect = {
-            'h': "home",
-            'm': "msg.move",
-            's': "msg.shoot",
-            'q': "quitWumpus"
-            }
-            
-            action = input("Move or Shoot? (m-s) ")
-            while(action == 'h' or action == 'm' or action == 's'
-                or action == 'q'):
-                actionSelect[action]()
-                
             #turn it into a message
+            m = Message()
+            action, room = input("Move or Shoot? (m-s)").split()
+            print(action)
+            print(room)
+            while(action == 'm' or action == 's' or action == 'q'):
+                if (action == 'q'):
+                    m.quit(name)
+                if (action == 'm'):
+                    m.move(room)
+                if (action == 's'):
+                    m.shoot(room)
+
             #send it to the server 
-    
-    #exits the playing loop
-    def home(self):
-        self.playing = False
+            print(m.toString())
+            skt.send(bytes(m.toString()), 'UTF-8')

@@ -27,6 +27,21 @@ class Message:
         self.command =  "JOIN"
         self.target = name
         self.numBytes = sys.getsizeof(name)
+    
+    def quit(self, name):
+        self.command = "QUIT"
+        self.target = name
+        self.numBytes = sys.getsizeof(name)
+    
+    def move(self, room):
+        self.command = "MOVE"
+        self.target = room
+        self.numBytes = sys.getsizeof(room)
+    
+    def shoot(self, room):
+        self.command = "SHOOT"
+        self.target = room
+        self.numBytes = sys.getsizeof(room)
         
     def toString(self):
         return self.command + "|" + self.target + "|" + str(self.numBytes) + "\n"

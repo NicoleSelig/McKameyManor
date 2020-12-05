@@ -30,7 +30,7 @@ class Client:
             #print("socket sent: " + newPlayer.toString())
             
             p = Play()
-            p.play(skt)
+            p.play(skt, name)
         
     #main driver    
     if __name__ == "__main__":
