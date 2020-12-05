@@ -1,3 +1,5 @@
+import sys
+
 class Message:
         
     def __init__ (self, data ="null|null|0"):
@@ -19,9 +21,9 @@ class Message:
     def join(self, name):
         self.command =  "JOIN"
         self.target = name
-        self.numBytes = 0
+        self.numBytes = sys.getsizeof(name)
         
     def toString(self):
-        return self.command + "|" + self.target + "|" + self.numBytes
+        return self.command + "|" + self.target + "|" + str(self.numBytes)
         
     

@@ -27,7 +27,11 @@ class Client:
             print("Hi " + name + "!")
             newPlayer = Message()
             newPlayer.join(name)
-            p.play()
+            print(newPlayer.toString())
+            skt.sendall(bytes(newPlayer.toString(), 'UTF-8'))
+            print("socket sent")
+            joinresponse = skt.recv(1024)
+            print(str(joinresponse))
         
     #main driver    
     if __name__ == "__main__":
