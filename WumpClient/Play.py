@@ -12,7 +12,7 @@ class Play:
         while self.playing:
             #read response from socket
             joinResponse = Response(str(skt.recv(1024)))
-            print(joinResponse.message)
+            print(joinResponse.getMessage())
           
             
             

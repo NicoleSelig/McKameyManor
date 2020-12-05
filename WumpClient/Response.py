@@ -21,8 +21,13 @@ class Response:
         # print(parts2)
         self.bytes = parts2[0]
         # print(self.bytes)
-       
-        #Prints the response Message -- not sure there is a need to store this in a variable
+        
         for line in parts2[1:-1]: #skips the first and last element 
-            print(line[1:]) #removes the n's
+            self.message += line[1:]
+            self.message += "\n"
+    
+      
+        
+    def getMessage(self):
+        return self.message
         
