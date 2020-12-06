@@ -19,22 +19,16 @@ class Response:
     message = ""
     
     def __init__(self, data):
-        self.parts = data.split("|")
-        print(self.parts) 
-        
-        self.code = self.parts[0] 
+        parts = data.split("|")
+        print(parts) 
+        self.code = parts[0] 
         print(self.code)
-        self.adjacentRooms = self.parts[1].split(",")
+        self.adjacentRooms = parts[1].split(",")
         print(self.adjacentRooms)
-        self.bytes = self.parts[2] 
+        self.bytes = int(re.search(r'\d+', parts[2]).group(0)) #finds the first number in the string 
         print(self.bytes)
-        
-        # #stores the message in a variable
-        # for line in parts2[1:-1]: #skips the first and last element 
-        #     self.message += line[1:]
-        #     self.message += "\n"
-        # #print(self.message)
-    
+        self.message = data[-self.bytes:]
+         
     def getMessage(self):
         return self.message
     
