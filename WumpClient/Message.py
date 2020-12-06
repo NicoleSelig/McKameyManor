@@ -28,10 +28,15 @@ class Message:
         self.numBytes = sys.getsizeof(name)
     
     #sets the quit message
-    def quit(self, name):
+    def quit(self):
         self.command = "QUIT"
-        self.target = name
-        self.numBytes = sys.getsizeof(name)
+        self.target = "null"
+        self.numBytes = 0
+        
+    def help(self):
+        self.command = "HELP"
+        self.target = "null"
+        self.numBytes = 0
     
     #sets a move message
     def move(self, room):

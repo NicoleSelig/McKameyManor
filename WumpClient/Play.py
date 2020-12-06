@@ -23,15 +23,18 @@ class Play:
                     #Nicole - we need to handle 'quit'...will not work if only one input
                     action = input("Move or Shoot? (m-s)")
             
-                    if (action == 'q'): 
+                    if action == 'q': 
                         m.quit(name)
                         print("You are abandoning the hunt! Goodbye!")
                         sys.exit(0)
-                    elif(action == 'm'):
+                    elif action == 'h':
+                        m.help()
+                        break
+                    elif action == 'm':
                         cave = input("Which cave?")
                         m.move(cave)
                         break
-                    elif(action == 's'):
+                    elif action == 's':
                         cave = input("Which cave?")
                         m.shoot(cave)
                         break
