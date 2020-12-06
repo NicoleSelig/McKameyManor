@@ -10,7 +10,7 @@ class Play:
       
         while self.playing:
             #read response from socket
-            response = Response(str(skt.recv(1024)))
+            response = Response(skt.recv(1024).decode('UTF-8'))
             print(response.getMessage())
             
             #store the adjacent rooms
