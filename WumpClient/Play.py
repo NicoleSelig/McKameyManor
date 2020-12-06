@@ -13,27 +13,27 @@ class Play:
             response = Response(skt.recv(1024).decode('UTF-8'))
             print(response.getMessage())
             
-            #store the adjacent rooms
-            adjacentRooms = response.getAdjacentRooms()
-            print(adjacentRooms)
-            
             #init a message to send
             m = Message()
-            
+            action = None
+            room = None
             while True:
                 try:
                     #get action and room from the user
                     #Nicole - we need to handle 'quit'...will not work if only one input
-                    action, room = input("Move or Shoot? (m-s)").split()
+                    action = input("Move or Shoot? (m-s)")
             
                     if (action == 'q'): 
                         m.quit(name)
-                        break
+                        print("You are abandoning the hunt! Goodbye!")
+                        sys.exit(0)
                     elif(action == 'm'):
-                        m.move(room)
+                        cave = input("Which cave?")
+                        m.move(cave)
                         break
                     elif(action == 's'):
-                        m.shoot(room)
+                        cave = input("Which cave?")
+                        m.shoot(cave)
                         break
                     else:
                         print("Invalid move. Try again") 
