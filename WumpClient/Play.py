@@ -23,17 +23,29 @@ class Play:
             #read the input - moves are chars
             #turn it into a message
             m = Message()
-            action, room = input("Move or Shoot? (m-s)").split()
-            print(action)
-            print(room)
-            while(action == 'm' or action == 's' or action == 'q'):
-                if (action == 'q'):
-                    m.quit(name)
-                if (action == 'm'):
-                    m.move(room)
-                if (action == 's'):
-                    m.shoot(room)
+            action = ""
+            room = ""
+            while True:
+                try:
+                    action, room = input("Move or Shoot? (m-s)").split()
+                    # print(action)
+                    # print(room) 
+                    if (action == 'q'): 
+                        m.quit(name)
+                        break
+                    elif(action == 'm'):
+                        m.move(room)
+                        break
+                    elif(action == 's'):
+                        m.shoot(room)
+                        break
+                    else:
+                        print("Invalid move. Try again") 
+                except ValueError:
+                    print("You must enter a move and a room. Try again")
+            
+                    
 
             #send it to the server 
             print(m.toString())
-            skt.send(bytes(m.toString()), 'UTF-8')
+            skt.send(bytes(m.toString(), 'UTF-8'))
