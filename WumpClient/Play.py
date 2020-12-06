@@ -13,14 +13,20 @@ class Play:
             response = Response(skt.recv(1024).decode('UTF-8'))
             print(response.getMessage())
             
+            if response.code == 300:
+                ans = input("Would you like to play again? (y/n)")
+                if ans == 'y':
+                    break
+                if ans == 'n':
+                    print("Good-bye!")
+                    sys.exit(0)
+                    
             #init a message to send
             m = Message()
-            action = None
-            room = None
+        
             while True:
                 try:
                     #get action and room from the user
-                    #Nicole - we need to handle 'quit'...will not work if only one input
                     action = input("Move or Shoot? (m-s)")
             
                     if action == 'q': 
@@ -44,5 +50,4 @@ class Play:
                     print("You must enter a move and a room. Try again")
             
             #send it to the server 
-            print(m.toString())
             skt.send(bytes(m.toString(), 'UTF-8'))

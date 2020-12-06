@@ -28,7 +28,6 @@ class Client:
             newPlayer = Message()
             newPlayer.join(name)
             skt.send(bytes(newPlayer.toString(), 'UTF-8'))
-            #print("socket sent: " + newPlayer.toString())
             
             #start play
             p = Play()
