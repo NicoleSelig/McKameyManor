@@ -22,6 +22,7 @@ class Client:
                 print("Goodbye!")
                 sys.exit()
             
+            #get the players name and send it to the server
             name = input("Welcome to Hunt the Wumpus! Enter your name: ")
             print("Welcome " + name + "!")
             newPlayer = Message()
@@ -29,6 +30,7 @@ class Client:
             skt.send(bytes(newPlayer.toString(), 'UTF-8'))
             #print("socket sent: " + newPlayer.toString())
             
+            #start play
             p = Play()
             p.play(skt, name)
         

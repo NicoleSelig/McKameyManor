@@ -1,5 +1,6 @@
 import sys
 
+#constructor class that handles the message sent by the server
 class Message:
     
     command = ""
@@ -20,29 +21,31 @@ class Message:
         for x in range(self.lines.len):
             self.message += self.lines[1] + "\n"
            
-    #getters and setters
-    #or by action 
-    #Nicole -- we need to add 'MOVE', SHOOT, etc...  
+    #sets a join message
     def join(self, name):
         self.command =  "JOIN"
         self.target = name
         self.numBytes = sys.getsizeof(name)
     
+    #sets the quit message
     def quit(self, name):
         self.command = "QUIT"
         self.target = name
         self.numBytes = sys.getsizeof(name)
     
+    #sets a move message
     def move(self, room):
         self.command = "MOVE"
         self.target = room
         self.numBytes = sys.getsizeof(room)
     
+    #sets a shoot message
     def shoot(self, room):
         self.command = "SHOOT"
         self.target = room
         self.numBytes = sys.getsizeof(room)
-        
+    
+    #sets the message to string format for sending to server
     def toString(self):
         return self.command + "|" + self.target + "|" + str(self.numBytes) + "\n"
     
