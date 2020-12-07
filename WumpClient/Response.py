@@ -21,8 +21,8 @@ class Response:
     def __init__(self, data):
         parts = data.split("|")
         #print(parts) 
-        self.code = int(parts[0]) 
-        #print(self.code)
+        self.code = parts[0].strip()
+        print(self.code)
         self.adjacentRooms = parts[1].split(",")
         #print(self.adjacentRooms)
         self.bytes = int(re.search(r'\d+', parts[2]).group(0)) #finds the first number in the string 

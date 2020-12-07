@@ -20,6 +20,13 @@ class Play:
                 if ans == 'n':
                     print("Good-bye!")
                     sys.exit(0)
+            if response.code == 99:
+                ans = input("Would you like to play again? (y/n)")
+                if ans == 'y':
+                    break
+                if ans == 'n':
+                    print("Good-bye!")
+                    sys.exit(0)
                     
             #init a message to send
             m = Message()
