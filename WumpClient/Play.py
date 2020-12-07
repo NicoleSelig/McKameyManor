@@ -34,7 +34,6 @@ class Play:
                 if ans == 'n':
                     print("Good-bye!")
                     sys.exit(0)
-            
                     
             #init a message to send
             m = Message()
@@ -53,10 +52,14 @@ class Play:
                         break
                     elif action == 'm':
                         cave = input("Which cave?")
+                        while(not(cave.isnumeric())):
+                            cave = input("Please enter a cave number.")
                         m.move(cave)
                         break
                     elif action == 's':
                         cave = input("Which cave?")
+                        while(not(cave.isnumeric())):
+                            cave = input("Please enter a cave number.")
                         m.shoot(cave)
                         break
                     else:
