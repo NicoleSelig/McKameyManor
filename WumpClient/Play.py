@@ -44,7 +44,7 @@ class Play:
                     action = input("Move or Shoot? (m-s)")
             
                     if action == 'q': 
-                        m.quit(name)
+                        m.quit()
                         print("You are abandoning the hunt! Goodbye!")
                         sys.exit(0)
                     elif action == 'h':
